@@ -15,5 +15,7 @@ Vagrant.configure("2") do |config|
       vb.cpus = 1
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end
+
+    server.vm.provision :shell, :path => "provisioning/scripts/ansible-stretch"
   end
 end
