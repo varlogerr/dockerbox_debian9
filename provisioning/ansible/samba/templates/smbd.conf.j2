@@ -1,0 +1,20 @@
+[global]
+    unix extensions = no
+    getwd cache = yes
+    large readwrite = yes
+    load printers = no
+    printing = bsd
+    printcap name = /dev/null
+    disable spoolss = yes
+
+[Share]
+    path = {{ samba_share_dir }}
+    browsable = yes
+    guest ok = yes
+    read only = no
+    create mask = 0664
+    directory mask = 0775
+    force user = {{ the_user }}
+    force group = {{ the_user_group }}
+    follow symlinks = yes
+    wide links = yes

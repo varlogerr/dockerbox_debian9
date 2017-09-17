@@ -1,0 +1,11 @@
+---
+- name: set locale
+  shell: /usr/sbin/update-locale LC_ALL=en_US.UTF-8 LANGUAGE=en_US.UTF-8
+
+- name: install linux common stuff
+  apt: name="{{ item }}" state=present
+  with_items:
+  - build-essential
+  - software-properties-common
+  - apt-transport-https
+  - "linux-headers-{{ ansible_kernel }}"

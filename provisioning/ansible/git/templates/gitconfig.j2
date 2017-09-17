@@ -1,0 +1,22 @@
+[alias]
+    log1 = log --oneline
+    logg = log --oneline -10
+    credcache = config credential.helper 'cache --timeout=5000000'
+    creduncache = config --global --unset credential.helper
+    stat = status -u
+    dif = diff --color-words
+
+[core]
+    editor = vim
+    # editor = mcedit
+[diff]
+    tool = vimdiff
+    # tool = mcdiff
+[merge]
+    tool = vimdiff
+[mergetool]
+    keepBackup = false
+[difftool "vimdiff"]
+    cmd = vimdiff $LOCAL $REMOTE
+[difftool "mcdiff"]
+    cmd = mcdiff $LOCAL $REMOTE

@@ -1,0 +1,24 @@
+---
+- name: crete configuration directory
+  file:
+    path: "{{ my_conf_dir }}"
+    owner: "{{ the_user }}"
+    group: "{{ the_user_group }}"
+    state: directory
+    mode: 0766
+
+- name: add user custom bashrc git config
+  template:
+    src: bashrc_git.j2
+    dest: "{{ my_bashrc_git_path }}"
+    owner: "{{ the_user }}"
+    group: "{{ the_user_group }}"
+    mode: 0600
+
+- name: include custom user bashrc to user bashrc
+  lineinfile:
+    dest: "{{ the_user_home }}/.bashrc"
+    create: yes
+    owner: "{{ the_user }}"
+    group: "{{ the_user_group }}"
+    line: "source {{ my_bashrc_git_path }}"

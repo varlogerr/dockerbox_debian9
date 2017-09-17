@@ -1,0 +1,2 @@
+---
+samba_custom_conf_path: /etc/samba/my_smbd.conf

@@ -1,0 +1,14 @@
+---
+- hosts: local
+  become: yes
+  roles:
+    - common
+    - toolbox
+    - git
+    - docker
+    - samba
+  vars:
+    the_user: vagrant # default user
+    the_user_group: vagrant # default user group
+    # samba_share_dir: /home/{{ the_user }}/Share # samba share directory path
+    # docker_compose_version: 1.16.1
